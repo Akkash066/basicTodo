@@ -4,7 +4,7 @@ import { genTicket, sum } from './helper';
 import Ticket  from './Ticket';
 
 
-const LotteryTicket = ({n=3, winnigSum=15}) => {
+const LotteryTicket = ({n=3, winCondition}) => {
 
   // function getNumber (n) {
   //  return [...Array(3)].map(()=> Math.floor(Math.random() * 10));
@@ -13,7 +13,7 @@ const LotteryTicket = ({n=3, winnigSum=15}) => {
   let [ticket, setTicket] = useState(genTicket(n));
   // let [ticket, setTicket] = useState(getNumber(3));
   
-  let isWinning = sum(ticket) === winnigSum;
+  let isWinning =  winCondition(ticket);
   
   
   let buyTicket = () => {
